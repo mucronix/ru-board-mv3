@@ -1,0 +1,1 @@
+var l=localStorage;l.tune=!0;document.location.href="popup.html";

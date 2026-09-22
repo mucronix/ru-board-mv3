@@ -1,0 +1,85 @@
+{
+  "manifest_version": 3,
+  "name": "Ru-Board++ MV3",
+  "version": "1.5.0",
+  "description": "Адаптация Ru-Board++ 1.4.8.4 для Manifest V3 — дополнительные возможности для Ru-Board",
+  "homepage_url": "http://forum.ru-board.com/topic.cgi?forum=5&topic=48992#1",
+  "icons": {
+    "16": "favicon.png",
+    "48": "fav.png",
+    "128": "fav.png"
+  },
+  "background": {
+    "service_worker": "sw.js"
+  },
+  "action": {
+    "default_icon": "fav32.png",
+    "default_popup": "popup.html"
+  },
+  "options_page": "op.html",
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": [
+        "*://forum.ru-board.com/*"
+      ],
+      "js": [
+        "main.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "all_frames": true,
+      "matches": [
+        "*://forum.ru-board.com/*"
+      ],
+      "css": [
+        "Ru-Board.css"
+      ],
+      "js": [
+        "acsst.js",
+        "txt.js",
+        "Ru-Board.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "all_frames": true,
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "ms.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "cookies",
+    "storage",
+    "unlimitedStorage",
+    "clipboardWrite",
+    "contextMenus",
+    "notifications",
+    "scripting",
+    "offscreen",
+    "alarms",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "*"
+      ],
+      "matches": [
+        "*://forum.ru-board.com/*"
+      ]
+    }
+  ],
+  "minimum_chrome_version": "116"
+}
