@@ -14,7 +14,15 @@ var C = (function () {
   chrome.runtime.onMessage.addListener(function (m) {
     if (m && m.__evt === "notif") notifListeners.forEach(function (f) { f(m.id); });
   });
+  var version = "";
+  try {
+    var x = new XMLHttpRequest();
+    x.open("GET", chrome.runtime.getURL("manifest.json"), false);
+    x.send();
+    version = JSON.parse(x.responseText).version;
+  } catch (e) {}
   return {
+    version: version,
     action: {
       setBadgeBackgroundColor: function (d) { call("action.setBadgeBackgroundColor", [d]); },
       setBadgeText: function (d) { call("action.setBadgeText", [d]); },
