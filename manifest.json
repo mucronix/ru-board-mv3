@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Ru-Board++ MV3",
-  "version": "1.5.7",
+  "version": "1.6.1",
   "description": "Адаптация Ru-Board++ 1.4.8.4 для Manifest V3 — дополнительные возможности для Ru-Board",
   "homepage_url": "http://forum.ru-board.com/topic.cgi?forum=5&topic=48992#1",
   "icons": {
