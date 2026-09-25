@@ -856,7 +856,8 @@ a ser:hover{
 #pgour{
 	position: fixed;
 	width: auto;
-	height: 100px;
+	text-align: left;
+	height: 162px;
 	top: 35px;
 	left: 0px;
 	margin-left: 2px!important;
@@ -864,7 +865,9 @@ a ser:hover{
 	overflow: hidden
 }
 	#pgour:hover{
-	max-width: 22px;
+	background: rgb(118, 135, 137);
+	box-shadow: 0 0 10px 0 #555;
+	max-width: 450px;
 	height: auto;
 	max-height: 80%;
 	overflow: auto;
@@ -873,16 +876,13 @@ a ser:hover{
 	z-index: 2
 }
 #pgour:hover a{
-	width: 18px!important
+	width: 100%!important;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis
 }
 #pgour a :first-child{
 	margin-right: 10px
-}
-#pgour :nth-child(5){
-	margin-bottom: 37px!important
-}
-#pgour:hover :nth-child(5){
-	margin-bottom: 32px!important
 }
 #pgour a{
 	width: 18px!important;
@@ -890,7 +890,6 @@ a ser:hover{
 	line-height: 16px;
 	padding: 7px 12px 5px 10px!important;
 	font-family: serif!important;
-	color: #333!important;
 	font-size: 20px!important;
 	margin-top: 2px!important;
 	overflow: hidden!important;
@@ -907,11 +906,6 @@ a ser:hover{
 	color: #ffbc05!important
 }
 #sert{
-	position: fixed;
-	top: 131px;
-	left: 2px;
-	width: 20px!important;
-    height: 16px !important;
 	border: 1px solid #999!important
 }
 #sert img{
