@@ -882,7 +882,10 @@ a ser:hover{
 	text-overflow: ellipsis
 }
 #pgour a :first-child{
-	margin-right: 10px
+	display: inline-block;
+	width: 18px;
+	text-align: center;
+	margin-right: 8px
 }
 #pgour a{
 	width: 18px!important;
@@ -911,7 +914,7 @@ a ser:hover{
 #sert img{
 	position: relative;
 	top:-1px;
-	left: 2px;
+	margin-left: 2px;
 	width: 17px;
 	height: 17px;
 	padding: 0!important;
