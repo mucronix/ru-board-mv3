@@ -857,7 +857,8 @@ a ser:hover{
 	position: fixed;
 	width: auto;
 	text-align: left;
-	height: 162px;
+	height: auto;
+	max-height: 162px;
 	top: 35px;
 	left: 0px;
 	margin-left: 2px!important;
@@ -876,7 +877,7 @@ a ser:hover{
 	z-index: 2
 }
 #pgour:hover a{
-	width: 100%!important;
+	width: calc(100% - 24px)!important;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis
@@ -897,7 +898,8 @@ a ser:hover{
 	margin-top: 2px!important;
 	overflow: hidden!important;
 	border: 1px solid #999!important;
-	white-space: nowrap
+	white-space: nowrap;
+	transition: none!important
 }
 #mujs:hover, #pgour a:hover, #sert:hover{
 	border: 1px solid #888!important
