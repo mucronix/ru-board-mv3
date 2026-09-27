@@ -263,7 +263,10 @@ a.d{
 	filter: grayscale(1)
 }
 #back{
-	margin-top: -1px
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	margin-top: 0
 }
 #del, .delon{
 	cursor: pointer;

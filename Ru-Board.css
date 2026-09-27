@@ -711,7 +711,7 @@ span.tpc{
 	box-shadow: 0 0 10px #333!important;
 	z-index: 89
 }
-#panel:hover, #qmenu, #nbpanel0{
+#panel:hover, #nbpanel0{
 	background: rgba(0,10,30,.5)!important
 }
 #nbpanel1, #nbpanel2, #nbpanel3, #nbpanel4{
@@ -861,8 +861,9 @@ a ser:hover{
 	max-height: 162px;
 	top: 35px;
 	left: 0px;
-	margin-left: 2px!important;
+	margin-left: -1px!important;
 	margin-bottom: 1px!important;
+	padding: 1px 3px 3px 3px;
 	overflow: hidden
 }
 	#pgour:hover{
@@ -873,7 +874,7 @@ a ser:hover{
 	max-height: 80%;
 	overflow: auto;
 	overflow-x: hidden;
-	padding-right: 20px;
+	padding: 1px 3px 3px 3px;
 	z-index: 2
 }
 #pgour:hover a{
@@ -887,6 +888,9 @@ a ser:hover{
 	width: 18px;
 	text-align: center;
 	margin-right: 8px
+}
+#pgour:not(:hover) a :first-child{
+	margin-right: 16px
 }
 #pgour a{
 	width: 18px!important;
@@ -953,6 +957,7 @@ a ser:hover{
 	text-align: center;
 	position: absolute;
 	display: none;
+	background: #fff;
     z-index: 2;
     padding: 2px;
     box-shadow: 0 0 20px -1px #000;
