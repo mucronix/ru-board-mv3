@@ -325,7 +325,8 @@ embed{
 	color: #ffbc05
 }
 #insert_window{
-	background:none
+	background:none!important;
+	padding:0!important
 }
 #insert_window *{
 	background: linear-gradient(to bottom,#80bfbf,#abedff)!important;
