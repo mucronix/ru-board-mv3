@@ -339,3 +339,13 @@ a[wo]{
 	margin-top:2px!important;
 	margin-bottom:1px!important
 }
+
+#iau, #ius{
+	left: 0;
+	width: 180px;
+	height: 24px;
+	padding: 0 6px;
+	box-sizing: border-box;
+	vertical-align: middle;
+	font-size: 13px!important
+}
