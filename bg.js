@@ -127,6 +127,11 @@
 				okback: a
 			})
 		};
+		if (r.needback && l.slow == "true" && /Ошибка связи/.test(l.pm) && !(+l.xr > 0 || +l.xrp > 0) && Date.now() - okt > 6E4) {
+			/* Нестабильная связь: страница форума открылась — значит, связь есть; перепроверяем личные сообщения */
+			okt = Date.now();
+			xrp()
+		};
 		if (r.needback) {
 			if (!l.up && l.ul == "***") {
 				sR({
@@ -176,10 +181,21 @@
 				ltr = l.tr;
 				cd = +l.tr * 60
 			};
-			if (navigator.onLine) {
+			if (l.slow == "true") {
+				/* Нестабильная связь: значок краснеет, только если сети нет 5 секунд подряд, и перерисовывается лишь при смене состояния */
+				off = navigator.onLine ? 0 : off + 1;
+				var st = off >= 5 ? "e" : "";
+				if (st !== ico) {
+					ico = st;
+					fbAI(st);
+					fbAT(st ? "\nНет сетевого соединения" : "")
+				}
+			} else if (navigator.onLine) {
+				ico = null;
 				fbAI("");
 				fbAT("")
 			} else {
+				ico = null;
 				fbAI("e");
 				fbAT("\nНет сетевого соединения")
 			};
@@ -330,7 +346,8 @@
 		}
 	};
 
-	function xrp() {
+	function xrp(n) {
+		n = +n || 0;
 		var xhr = new XMLHttpRequest();
 		xhr.onloadend = function(e) {
 			setTimeout(function() {
@@ -339,7 +356,15 @@
 		};
 		xhr.timeout = 30000;
 		xhr.ontimeout = xhr.onerror = function(e) {
+			/* Нестабильная связь: прежде чем ставить ошибку, два повтора через 15 и 30 с */
+			if (l.slow == "true" && n < 2) {
+				setTimeout(function() {
+					xrp(n + 1)
+				}, 15E3 * (n + 1));
+				return
+			};
 			l.pm = "<span class='e' title='Ошибка связи'>*</span>";
+			l.slow == "true" && rbadge();
 			l.son2 == "true" && plays_mess("2", l.sr2);
 			l.em == "true" && notic("0", "Проблемы!", "Почта не проверена!", "favE.png");
 			setTimeout(function() {
@@ -367,6 +392,7 @@
 							l.pm = "0"
 						}
 					};
+					l.slow == "true" && (fbAI(""), ico = "", rbadge());
 					xhr = null
 				}
 			}
@@ -597,6 +623,19 @@
 				}, 200)
 			}, 200)
 		}
+	};
+
+	var okt = 0,
+		off = 0,
+		ico = null;
+
+	function rbadge() {
+		C.action.setBadgeBackgroundColor({
+			color: +l.pm > 0 ? "#F00" : l.inc != "true" ? "#00AFAC" : "#999"
+		});
+		C.action.setBadgeText({
+			text: ns(l.pm) + ns(l.cp) + l.cor
+		})
 	};
 
 	function ns(a) {
